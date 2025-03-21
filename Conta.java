@@ -6,14 +6,17 @@ public class Conta {
     private double valorTransferencia = 0;
     private double valorSimulacao = 0;
 
-    public void Depositar() {
-        this.saldo += valorDeposito;
+    public void Depositar(double valorDeposito) {
+        if (valorDeposito > 0) {
+            this.saldo += valorDeposito;
+        } else System.out.println("Valor de deposito invalido.");
     }
     
-    public void Sacar() {
+    public void Sacar(double valorSaque) {
+        if (valorSaque)
     }
 
-    public void Transferir() {
+    public void Transferir(double valorTransferencia, int contaId) {
 
     }
 
