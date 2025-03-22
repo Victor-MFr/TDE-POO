@@ -13,11 +13,15 @@ public class Conta {
     }
     
     public void Sacar(double valorSaque) {
-        if (valorSaque)
+        if (valorSaque <= saldo && valorSaque > 0) {
+            this.saldo -= valorSaque;
+        } else System.out.println("Valor de saque inválido");
     }
 
     public void Transferir(double valorTransferencia, int contaId) {
-
+        if (valorTransferencia <= saldo) {
+            this.saldo -= valorTransferencia;
+        }
     }
 
     public void SimuladorDeRendimento() {
