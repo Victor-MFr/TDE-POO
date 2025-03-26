@@ -1,11 +1,13 @@
 public class Conta { //falta a implementaçao da herança com a classe pessoa, ou criar uma classe cliente que tenha herança da classe pessoa e depois implementar ela a essa classe
-    private int contaId = 0;
+    private int contaId;
+    private static int contadorContaId = 0;
     private double saldo = 0;
     private Pessoa cliente;
 
     public Conta(Pessoa cliente) {
         this.cliente = cliente;
-        contaId++;
+        contadorContaId++;
+        this.contaId = contadorContaId;
     }
 
     public void ContaInfo() {

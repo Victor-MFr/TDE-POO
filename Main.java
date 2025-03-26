@@ -14,8 +14,8 @@ public class Main {
         p2.Cadastro("NomeTeste2", "email2@email.com", "111.111.111-11", date2);
         p2.ExibirInfo();
 
-        Conta c1 = new Conta(p1);
-        Conta c2 = new Conta(p2);
+        Conta c1 = new Conta(p2);
+        Conta c2 = new Conta(p1);
 
         c1.Depositar(500);
         c1.Transferir(155, c2);
