@@ -22,4 +22,16 @@ public class Pessoa {
         System.out.println("CPF: " + CPF);
         System.out.println("Data de Nascimento: " + dataNascimento);
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
 }

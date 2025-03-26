@@ -1,18 +1,17 @@
 public class Conta { //falta a implementaçao da herança com a classe pessoa, ou criar uma classe cliente que tenha herança da classe pessoa e depois implementar ela a essa classe
-    private static int contaId = 0;
+    private int contaId = 0;
     private double saldo = 0;
-    private double valorDeposito = 0;
-    private double valorSaque = 0;
-    private double valorTransferencia = 0;
+    private Pessoa cliente;
 
-    //eu acho que esse Construtor está errado
-    public Conta() {
-        this.contaId = ++contaId;
+    public Conta(Pessoa cliente) {
+        this.cliente = cliente;
+        contaId++;
     }
 
     public void ContaInfo() {
-        System.out.println("Id da Conta: " + contaId);
-        System.out.println("Saldo: " + saldo);
+        System.out.println("\nId da Conta: " + contaId);
+        System.out.println("Nome do Cliente: " + cliente.getNome());
+        System.out.println("Saldo: R$" + saldo);
     }
 
     public void Depositar(double valorDeposito) {
@@ -29,14 +28,13 @@ public class Conta { //falta a implementaçao da herança com a classe pessoa, o
         } else System.out.println("Valor de saque invalido");
     }
 
-    public void Transferir(double valorTransferencia, int contaId) {
+    public void Transferir(double valorTransferencia, Conta contaDaTransferencia) {
         if (valorTransferencia <= this.saldo && valorTransferencia > 0) {
-            Conta contaDaTransferencia = Conta(contaId); //ERRO NESSA LINHA
             if (contaDaTransferencia != null) {
                 this.saldo -= valorTransferencia;
                 contaDaTransferencia.saldo += valorTransferencia;
                 System.out.println("Transferencia no valor de R$" + valorTransferencia + " para a conta com id " + contaId + " realizado com sucesso");
-            } else System.out.println("Conta com id " + contaId +" não encontrada");
+            } else System.out.println("Conta de transferencia invalida");
         } else System.out.println("Valor de transferencia invalido");
     }
 }
