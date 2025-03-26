@@ -21,6 +21,8 @@ public class Main {
         c1.Transferir(155, c2);
         c1.ContaInfo();
         c2.ContaInfo();
-    }
 
+        p1.ExibirInfo();
+        p2.ExibirInfo();
+    }
 }
