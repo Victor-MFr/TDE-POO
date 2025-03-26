@@ -1,4 +1,4 @@
-public class Conta { //falta a implementaçao da herança com a classe pessoa, ou criar uma classe cliente que tenha herança da classe pessoa e depois implementar ela a essa classe
+public class Conta {
     private int contaId;
     private static int contadorContaId = 0;
     private double saldo = 0;
