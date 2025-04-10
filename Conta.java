@@ -1,6 +1,6 @@
-public class Conta { //falta a implementaçao da herança com a classe pessoa, ou criar uma classe cliente que tenha herança da classe pessoa e depois implementar ela a essa classe
-    private int contaId;
+public class Conta {
     private static int contadorContaId = 0;
+    private int contaId;
     private double saldo = 0;
     private Pessoa cliente;
 
@@ -12,7 +12,6 @@ public class Conta { //falta a implementaçao da herança com a classe pessoa, o
 
     public void ContaInfo() {
         System.out.println("\nId da Conta: " + contaId);
-        System.out.println("Nome do Cliente: " + cliente.getNome());
         System.out.println("Saldo: R$" + saldo);
     }
 
