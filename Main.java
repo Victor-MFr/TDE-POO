@@ -40,7 +40,7 @@ public class Main {
                             //Escolha 1: Cadastrar Infomações da pessoa
                             if (choice == 1) {
                                 System.out.println("");
-                                System.out.println("Opcão 1 escolhida: Cadastra Pessoa\n");
+                                System.out.println("Opcão 1 escolhida: Cadastrar Pessoa\n");
                                 scanner.nextLine();
 
                                 System.out.println("");
@@ -73,22 +73,28 @@ public class Main {
                                 System.out.println("");
 
                                 choiceId = scanner.nextInt();
-
-                                for (Pessoa pessoa : listaPessoa) {
-                                    if (!listaPessoa.isEmpty()) {
+                                if (!listaPessoa.isEmpty()) {
+                                    boolean pessoaEncontrada = false;
+                                    for (Pessoa pessoa : listaPessoa) {
                                         if (choiceId == pessoa.getPessoaId()) {
+
+                                            pessoaEncontrada = true;
                                             pessoa.ExibirInfo();
                                             break;
-                                        } else System.out.println("Pessoa com id:" + choiceId + " nao encontrada");
-                                    } else System.out.println("Nenhuma pessoa foi cadastrada");
-                                }
+                                        
+                                        }
+                                    }
+                                    if (!pessoaEncontrada) System.out.println("Pessoa com id:" + choiceId + " nao encontrada");
+                                } else System.out.println("Nenhuma pessoa foi cadastrada");
                             }
 
                             //Escolha 3: Exibir Infomação de todas as pessoas cadastradas
                             else if (choice == 3) {
                                 if (!listaPessoa.isEmpty()) {
                                     for (Pessoa pessoa : listaPessoa) {
-                                    pessoa.ExibirInfo();
+                                    
+                                        pessoa.ExibirInfo();
+
                                     }
                                 } else System.out.println("Nenhuma pessoa foi cadastrada");
                             }
@@ -121,18 +127,24 @@ public class Main {
                         if (choice == 1) {
                             System.out.println("");
                             System.out.println("Cadastrar e vincular conta a pessoa: ");
-                            
+
+                            System.out.println("Digite o ID da pessoa para vincular a conta: ");
                             choiceId = scanner.nextInt();
-                            
+                            boolean pessoaEncontrada = false;
+
                             for (Pessoa pessoa : listaPessoa) {
                                 if (!listaPessoa.isEmpty()) {
                                     if (choiceId == pessoa.getPessoaId()) {
+                                        
                                         Conta conta = new Conta(pessoa);
                                         listaConta.add(conta);
+                                        pessoaEncontrada = true;
+                                        System.out.println("Conta vinculada com sucesso à pessoa: " + pessoa.getNome());
                                         break;
-                                    } else System.out.println("Pessoa escolhida para vincular nao encontrada");
+
+                                    } 
                                 } else System.out.println("Nenhuma pessoa esta cadastrada para vincular uma conta");
-                            }
+                            } if (!pessoaEncontrada) System.out.println("Pessoa escolhida para vincular nao encontrada");
                         }
 
                         //Escolha 2: Exibir infomação da conta escolhida pelo id
@@ -146,19 +158,27 @@ public class Main {
 
                             choiceId = scanner.nextInt();
 
-                            for (Conta conta : listaConta) {
-                                if (choiceId == conta.getContaId()) {
+                            if (!listaConta.isEmpty()){
+                                boolean contaEncontrada = false;
+                                for (Conta conta : listaConta) {
+                                    if (choiceId == conta.getContaId()) {
+                                        
                                         conta.ExibirInfoConta();
+                                        contaEncontrada = true;
                                         break;
-                                } else System.out.println("Conta com id:" + choiceId + " nao encontrada");
-                            }
+
+                                    }
+                                } if (!contaEncontrada) System.out.println("Conta com id:" + choiceId + " nao encontrada");
+                            } else System.out.println("Nenhuma conta cadastrada");
                         }
 
                         //Escolha 3: Exibir informação de todas as contas
                         else if (choice == 3) {
                             if (!listaConta.isEmpty()) {
                                 for (Conta conta : listaConta) {
-                                conta.ExibirInfoConta();
+                                
+                                    conta.ExibirInfoConta();
+                                    
                                 }
                             } else System.out.println("Nenhuma conta foi cadastrada");
                         }
@@ -187,6 +207,7 @@ public class Main {
                             System.out.println("3-Transferir");
                             System.out.println("4-Voltar");
                             System.out.println("");
+                            choice = scanner.nextInt();
 
                             //Escolha 1: Depositar
                             if (choice == 1) {
@@ -195,6 +216,8 @@ public class Main {
 
                                 System.out.println("Digite o id da conta que voce deseja depositar: ");
                                 choiceContaId = scanner.nextInt();
+                                
+                                boolean contaEncontrada = false;
 
                                 for (Conta conta : listaConta) {
                                     if (!listaPessoa.isEmpty()) {
@@ -202,15 +225,15 @@ public class Main {
                                             System.out.println("Digite o valor que voce deseja depositar na conta com id: " + choiceContaId);
                                             valor = scanner.nextDouble();
                                             
+                                            contaEncontrada = true;
                                             conta.Depositar(valor);
                                             
-                                            System.out.println("Deposito no valor de R$" + valor + "realizado com sucesso");
-                                        } else System.out.println("Pessoa escolhida para vincular nao encontrada");
+                                        }
                                     } else {
                                         System.out.println("Nenhuma pessoa esta cadastrada para vincular uma conta");
                                         break;  
                                     }
-                                }
+                                } if (!contaEncontrada) System.out.println("Pessoa escolhida para vincular nao encontrada");
                             }
 
                             //Escolha 2: Sacar
@@ -221,16 +244,18 @@ public class Main {
                                 System.out.println("Digite o id da conta que voce deseja Sacar: ");
                                 choiceContaId = scanner.nextInt();
 
+                                boolean contaEncontrada = false;
+
                                 for (Conta conta : listaConta) {
                                         if (choiceContaId == conta.getContaId()) {
                                             System.out.println("Digite o valor que voce deseja sacar da conta com id: " + choiceContaId);
                                             valor = scanner.nextDouble();
                                             
                                             conta.Sacar(valor);
-                                            
-                                            System.out.println("Saque no valor de R$" + valor + "realizado com sucesso");
-                                        } else System.out.println("Conta com id:" + choiceContaId + "nao encontrada");
-                                }
+                                            contaEncontrada = true;
+
+                                        }
+                                } if (!contaEncontrada) System.out.println("Conta com id:" + choiceContaId + " nao encontrada");
                             }
 
                             //Escolha 3: Transferir
@@ -241,10 +266,16 @@ public class Main {
                                 System.out.println("Digite o id da conta de origem: ");
                                 choiceContaId = scanner.nextInt();
 
+                                boolean contaOrigEncontrada = false;
+                                boolean contaDestEncontrada = false;
+
                                 for (Conta conta : listaConta) {
+                                    if (!listaConta.isEmpty()){
                                         if (choiceContaId == conta.getContaId()) {
-                                            System.out.println("Digite o id da conta que voce deseja transferir: ");
+                                            System.out.println("Digite o id de destino: ");
                                             contaDestId = scanner.nextInt();
+
+                                            contaOrigEncontrada = true;
                                             
                                             for (Conta contaDest : listaConta) {
                                                 if (contaDestId == contaDest.getContaId()) {
@@ -253,12 +284,12 @@ public class Main {
                                                     valor = scanner.nextDouble();
                                                     
                                                     conta.Transferir(valor, contaDest);
-
-                                                    System.out.println("Transferencia no valor de R$" + valor + " para a conta de id: " + contaDestId + "realizado com sucesso"); 
-                                                } else System.out.println("Conta de destino com id:" + contaDestId + " nao encotrada");
-                                            }
-                                        } else System.out.println("Conta com id:" + choiceContaId + "nao encontrada");
-                                }
+                                                    contaDestEncontrada = true;
+                                                }
+                                            } if (!contaDestEncontrada) System.out.println("Conta de destino com id:" + contaDestId + " nao encotrada");
+                                        }
+                                    } else System.out.println("Nenhuma conta cadastrada");
+                                } if (!contaOrigEncontrada) System.out.println("Conta com id:" + choiceContaId + "nao encontrada");
                             }
 
                             //Escolha 4: Voltar
@@ -269,7 +300,7 @@ public class Main {
                                 break;
                             }
     
-                            else System.out.println("\nnenhuma  opcao escolhida ou a opcao e invalida");
+                            else System.out.println("\nnenhuma opcao escolhida ou a opcao e invalida");
     
                         } while (choice != 4);
                         
@@ -278,6 +309,8 @@ public class Main {
                 case 4:
                     System.out.println("");
                     System.out.println("Opcao 4 escolhida: Sair");
+                    System.out.println("");
+                    System.out.println("Saindo");
                     System.out.println("");
                     status = false;
                     break;
