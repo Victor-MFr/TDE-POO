@@ -10,7 +10,7 @@ public class Conta {
         this.contaId = contadorContaId;
     }
 
-    public void ContaInfo() {
+    public void ExibirInfoConta() {
         System.out.println("\nId da Conta: " + contaId);
         System.out.println("Saldo: R$" + saldo);
     }
@@ -37,5 +37,9 @@ public class Conta {
                 System.out.println("Transferencia no valor de R$" + valorTransferencia + " para a conta com id " + contaId + " realizado com sucesso");
             } else System.out.println("Conta de transferencia invalida");
         } else System.out.println("Valor de transferencia invalido");
+    }
+
+    public int getContaId() {
+        return contaId;
     }
 }
