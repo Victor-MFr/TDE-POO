@@ -112,27 +112,27 @@ public class Main {
                         System.out.println("");
                         choice = scanner.nextInt();
 
-                        // if () {
+                        if () {
 
-                        // }
+                        }
 
-                        // else if (true) {
+                        else if (true) {
                             
-                        // }
+                        }
                         
-                        // else if (true) {
+                        else if (true) {
                             
-                        // }
+                        }
 
-                        // else if (true) {
+                        else if (true) {
                             
-                        // }
+                        }
 
-                        // else if (true) {
+                        else if (true) {
                             
-                        // }
+                        }
 
-                        // else ;
+                        else ;
 
                     } while (choice != 5);
 
