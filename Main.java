@@ -138,6 +138,7 @@ public class Main {
                                         
                                         Conta conta = new Conta(pessoa);
                                         listaConta.add(conta);
+                                        pessoa.AdicionarConta(conta);
                                         pessoaEncontrada = true;
                                         System.out.println("Conta vinculada com sucesso à pessoa: " + pessoa.getNome());
                                         break;

@@ -13,6 +13,7 @@ public class Conta {
     public void ExibirInfoConta() {
         System.out.println("\nId da Conta: " + contaId);
         System.out.println("Saldo: R$" + saldo);
+        System.out.println("Nome do cliente vinculado a essa conta: " + cliente.getNome());
     }
 
     public void Depositar(double valorDeposito) {
@@ -42,4 +43,9 @@ public class Conta {
     public int getContaId() {
         return contaId;
     }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
 }
