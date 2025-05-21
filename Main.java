@@ -40,27 +40,46 @@ public class Main {
                             //Escolha 1: Cadastrar Infomações da pessoa
                             if (choice == 1) {
                                 System.out.println("");
-                                System.out.println("Opcão 1 escolhida: Cadastrar Pessoa\n");
+                                System.out.println("Opção 1 escolhida: Cadastrar Pessoa\n");
                                 scanner.nextLine();
-
-                                System.out.println("");
-                                System.out.println("Digite o Nome da pessoa: ");
-                                String nome = scanner.nextLine();
-
-                                System.out.println("");
-                                System.out.println("Digite o email da pessoa: ");
-                                String email = scanner.nextLine();
-
-                                System.out.println("");
-                                System.out.println("Digite o CPF da pessoa: ");
-                                String CPF = scanner.nextLine();
-                                
+                            
+                                String nome = "";
+                                do {
+                                    System.out.println("Digite o Nome da pessoa: ");
+                                    
+                                    nome = scanner.nextLine();
+                                    
+                                    if (nome.trim().isEmpty()) {
+                                        System.out.println("NOME ESCOLHIDO E INVALIDO.");
+                                    } 
+                                } while (nome.trim().isEmpty());
+                            
+                                String email = "";
+                                do {
+                                    System.out.println("Digite o email da pessoa: ");
+                                    
+                                    email = scanner.nextLine();
+                                    
+                                    if (email.trim().isEmpty()) {
+                                        System.out.println("EMAIL ESCOLHIDO E INVALIDO.");
+                                    }
+                                } while (email.trim().isEmpty());
+                            
+                                String CPF = "";
+                                do {
+                                    System.out.println("Digite o CPF da pessoa: ");
+                                    
+                                    CPF = scanner.nextLine();
+                                    
+                                    if (CPF.trim().isEmpty()) {
+                                        System.out.println("CPF ESCOLHIDO E INVALIDO.");
+                                    }
+                                } while (CPF.trim().isEmpty());
+                            
                                 Pessoa pessoa = new Pessoa(nome, email, CPF);
                                 listaPessoa.add(pessoa);
-
-                                System.out.println("");
-                                System.out.println("Pessoa adicionada.");
-                                System.out.println("");
+                            
+                                System.out.println("\nPessoa adicionada.\n");
                             }
 
                             //Escolha 2: Exibir Infomação da pessoa escolhida pelo id

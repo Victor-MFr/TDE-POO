@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pessoa{
-    private List<Conta> contasVinculadas;
+    private final List<Conta> contasVinculadas;
     private String nome;
     private String email;
     private String CPF;
