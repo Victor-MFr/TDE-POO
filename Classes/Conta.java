@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 
 public class Conta {
     private static int contadorContaId = 0;
