@@ -1,6 +1,6 @@
 package APP;
-import Classes.Conta;
-import Classes.Pessoa;
+import classes.Conta;
+import classes.Pessoa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
