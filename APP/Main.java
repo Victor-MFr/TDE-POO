@@ -53,7 +53,7 @@ public class Main {
                                     nome = scanner.nextLine();
                                     
                                     if (nome.trim().isEmpty()) {
-                                        System.out.println("NOME ESCOLHIDO E INVALIDO.");
+                                        System.out.println("NOME ESCOLHIDO É INVALIDO.");
                                     } 
                                 } while (nome.trim().isEmpty());
                             
@@ -64,7 +64,7 @@ public class Main {
                                     email = scanner.nextLine();
                                     
                                     if (email.trim().isEmpty()) {
-                                        System.out.println("EMAIL ESCOLHIDO E INVALIDO.");
+                                        System.out.println("EMAIL ESCOLHIDO É INVALIDO.");
                                     }
                                 } while (email.trim().isEmpty());
                             
@@ -307,7 +307,7 @@ public class Main {
                                             } if (!contaDestEncontrada) System.out.println("Conta de destino com id:" + contaDestId + " nao encotrada");
                                         }
                                     } else System.out.println("Nenhuma conta cadastrada");
-                                } if (!contaOrigEncontrada) System.out.println("Conta com id:" + choiceContaId + "nao encontrada");
+                                } if (!contaOrigEncontrada) System.out.println("Conta com id:" + choiceContaId + " nao encontrada");
                             }
 
                             //Escolha 4: Voltar
@@ -343,3 +343,4 @@ public class Main {
         }
     }
 }
+
